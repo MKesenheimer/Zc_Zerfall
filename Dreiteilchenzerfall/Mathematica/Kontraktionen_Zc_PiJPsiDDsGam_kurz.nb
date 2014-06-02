@@ -1,0 +1,857 @@
+(* Content-type: application/mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 7.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       145,          7]
+NotebookDataLength[     33862,        848]
+NotebookOptionsPosition[     32463,        799]
+NotebookOutlinePosition[     32820,        815]
+CellTagsIndexPosition[     32777,        812]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"<<", "Tracer`"}], "\.1d"}]], "Input",
+ CellChangeTimes->{{3.5915194416225224`*^9, 3.591519444866935*^9}, {
+  3.595909226825612*^9, 3.595909247574656*^9}, {3.598093417791544*^9, 
+  3.598093489291888*^9}, {3.610301453067*^9, 3.610301481345491*^9}},
+ EmphasizeSyntaxErrors->True],
+
+Cell[CellGroupData[{
+
+Cell[BoxData["\<\" \\n                               T R A C E R\"\>"], \
+"Print",
+ CellChangeTimes->{3.610301482078231*^9}],
+
+Cell[BoxData["\<\"                              =============\\n \\n\"\>"], \
+"Print",
+ CellChangeTimes->{3.610301482080406*^9}],
+
+Cell[BoxData["\<\"     A MATHEMATICA PACKAGE FOR GAMMA-ALGEBRA IN ARBITRARY \
+DIMENSIONS\"\>"], "Print",
+ CellChangeTimes->{3.610301482083097*^9}],
+
+Cell[BoxData["\<\"                     by M. Jamin and M.E. \
+Lautenbacher\"\>"], "Print",
+ CellChangeTimes->{3.610301482085903*^9}],
+
+Cell[BoxData["\<\"              Physics Dept. T31, Technical University \
+Munich\\n \\n\"\>"], "Print",
+ CellChangeTimes->{3.610301482088972*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"             Version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.1.1\"\>", 
+   "\[InvisibleSpace]", "\<\" from \"\>", 
+   "\[InvisibleSpace]", "\<\"Mon Dec 30 15:36:00 MET 1991\"\>"}],
+  SequenceForm[
+  "             Version ", "1.1.1", " from ", "Mon Dec 30 15:36:00 MET 1991"],
+  
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6103014820919123`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"                    (based on MATHEMATICA Version \"\>", 
+   "\[InvisibleSpace]", "\<\"1.2\"\>", 
+   "\[InvisibleSpace]", "\<\")\\n \\n\"\>"}],
+  SequenceForm[
+  "                    (based on MATHEMATICA Version ", "1.2", ")\n \n"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.610301482094836*^9}],
+
+Cell[BoxData["\<\"The package defines the following \
+commands:\\n\\n\\\"AntiCommute\\\", \\\"ContractEpsGamma\\\", \\\"Eps\\\", \\\
+\"G\\\",\\n\\\"GammaTrace\\\", \\\"G5\\\", \\\"H\\\",\\n\\\"ListCommands\\\", \
+\\\"NoSpur\\\",\\n\\\"OnShell\\\", \\\"OutputFormat\\\", \\\"RemoveHatMomenta\
+\\\",\\n\\n\\\"RemoveNCM\\\", \\\"S\\\", \\\"Sigma\\\", \\\"SortLine\\\", \
+\\\"Spur\\\", \\\"T\\\",\\n\\\"ToDiracBasis\\\",\\n\\\"ToHatTilde\\\", \
+\\\"ToOtimes\\\", \\\"ToUG5\\\", \\\"U\\\",\\n\\\"VectorDimension\\\", \
+\\\"Version\\\".\\n\\n                                    Help on usage as \
+usual per ?Name.\\n\"\>"], "Print",
+ CellChangeTimes->{3.610301482098172*^9}],
+
+Cell[BoxData["\<\"DEFAULT SETTINGS ON \
+STARTUP:\\n\\n----------------------------\"\>"], "Print",
+ CellChangeTimes->{3.610301482100821*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"NonCommutativeMultiply will be \"\>", 
+   "\[InvisibleSpace]", "\<\"removed.\"\>"}],
+  SequenceForm["NonCommutativeMultiply will be ", "removed."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.6103014822710037`*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Current OutputFormat is set to \"\>", 
+   "\[InvisibleSpace]", "\<\"\\\"texlike\\\"\"\>", 
+   "\[InvisibleSpace]", "\<\".\"\>"}],
+  SequenceForm["Current OutputFormat is set to ", "\"texlike\"", "."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.610301482275894*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package uses a non anticommuting G5 in \\\"\"\>", 
+   "\[InvisibleSpace]", "\<\"d\"\>", 
+   "\[InvisibleSpace]", "\<\"\\\" dimensions.\"\>"}],
+  SequenceForm[
+  "Package uses a non anticommuting G5 in \"", "d", "\" dimensions."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.610301482280518*^9}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\.1d", " ", "Null"}]], "Output",
+ CellChangeTimes->{{3.61030146705072*^9, 3.6103014822842503`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"VectorDimension", "[", "4", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "\"\<Global`*\>\"", "]"}]}], "Input",
+ CellChangeTimes->{{3.610098787292794*^9, 3.61009879223169*^9}, {
+  3.610164368518867*^9, 3.610164392664616*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Dimension set to \\\"4\\\". NOTE: For this setting of\"\>", 
+   "\[InvisibleSpace]", "\<\" the dimension the\"\>"}],
+  SequenceForm[
+  "Dimension set to \"4\". NOTE: For this setting of", " the dimension the"],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.610296125655991*^9, 3.6102969819848557`*^9, 
+  3.610298743149641*^9, 3.610301009616156*^9, 3.610301446790168*^9}],
+
+Cell[BoxData[
+ InterpretationBox[
+  RowBox[{"\<\"Package uses the usual anticommuting G5 in \\\"\"\>", 
+   "\[InvisibleSpace]", "\<\"4\"\>", 
+   "\[InvisibleSpace]", "\<\"\\\" dimensions.\"\>"}],
+  SequenceForm[
+  "Package uses the usual anticommuting G5 in \"", "4", "\" dimensions."],
+  Editable->False]], "Print",
+ CellChangeTimes->{3.610296125655991*^9, 3.6102969819848557`*^9, 
+  3.610298743149641*^9, 3.610301009616156*^9, 3.6103014467935762`*^9}]
+}, Open  ]]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"rules", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"d", "\[Rule]", "4"}], ",", 
+     RowBox[{
+      RowBox[{"p", ".", "p"}], "\[Rule]", 
+      RowBox[{"M", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"p", "^", "2"}], "\[Rule]", 
+      RowBox[{"M", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"p", "^", "2"}]}], "\[Rule]", 
+      RowBox[{"1", "/", 
+       RowBox[{"M", "^", "2"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p1", ".", "p1"}], "\[Rule]", 
+      RowBox[{"m1", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"p1", "^", "2"}], "\[Rule]", 
+      RowBox[{"m1", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"p1", "^", "2"}]}], "\[Rule]", 
+      RowBox[{"1", "/", 
+       RowBox[{"m1", "^", "2"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p2", ".", "p2"}], "\[Rule]", 
+      RowBox[{"m2", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"p2", "^", "2"}], "\[Rule]", 
+      RowBox[{"m2", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"p2", "^", "2"}]}], "\[Rule]", 
+      RowBox[{"1", "/", 
+       RowBox[{"m2", "^", "2"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p3", ".", "p3"}], "\[Rule]", 
+      RowBox[{"m3", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"p3", "^", "2"}], "\[Rule]", 
+      RowBox[{"m3", "^", "2"}]}], ",", 
+     RowBox[{
+      RowBox[{"1", "/", 
+       RowBox[{"p3", "^", "2"}]}], "\[Rule]", 
+      RowBox[{"1", "/", 
+       RowBox[{"m3", "^", "2"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p1", ".", "p3"}], "\[Rule]", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], 
+       RowBox[{"(", 
+        RowBox[{"s31", "-", 
+         RowBox[{"m3", "^", "2"}], "-", 
+         RowBox[{"m1", "^", "2"}]}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p2", ".", "p3"}], "\[Rule]", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], 
+       RowBox[{"(", 
+        RowBox[{"s23", "-", 
+         RowBox[{"m2", "^", "2"}], "-", 
+         RowBox[{"m3", "^", "2"}]}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p1", ".", "p2"}], "\[Rule]", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], 
+       RowBox[{"(", 
+        RowBox[{"s12", "-", 
+         RowBox[{"m1", "^", "2"}], "-", 
+         RowBox[{"m2", "^", "2"}]}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p", ".", "p1"}], "\[Rule]", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"M", "^", "2"}], "+", 
+         RowBox[{"m1", "^", "2"}], "-", "s23"}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p", ".", "p2"}], "\[Rule]", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"M", "^", "2"}], "+", 
+         RowBox[{"m2", "^", "2"}], "-", "s31"}], ")"}]}]}], ",", 
+     RowBox[{
+      RowBox[{"p", ".", "p3"}], "\[Rule]", 
+      RowBox[{
+       RowBox[{"1", "/", "2"}], 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"M", "^", "2"}], "+", 
+         RowBox[{"m3", "^", "2"}], "-", "s12"}], ")"}]}]}]}], "}"}]}], 
+  ";"}]], "Input",
+ CellChangeTimes->{{3.601359640729785*^9, 3.601359662777384*^9}, {
+  3.603780001996068*^9, 3.603780018949478*^9}, {3.603780119084116*^9, 
+  3.603780119210821*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"ohne", " ", "Eichinvariante", " ", "Gr\[ODoubleDot]\[SZ]en"}], 
+    ",", " ", 
+    RowBox[{
+    "f\[UDoubleDot]r", " ", "numerische", " ", "Rechnunen", " ", 
+     "brauchbar"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"gt", "[", 
+     RowBox[{"alp_", ",", "gam_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"{", "alp", "}"}], ".", 
+     RowBox[{"{", "gam", "}"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"pt", "[", "gam_", "]"}], ":=", 
+    RowBox[{"p", ".", 
+     RowBox[{"{", "gam", "}"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"p2t", "[", "gam_", "]"}], ":=", 
+    RowBox[{"p2", ".", 
+     RowBox[{"{", "gam", "}"}]}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"p1t", "[", "gam_", "]"}], ":=", 
+    RowBox[{"p1", ".", 
+     RowBox[{"{", "gam", "}"}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.598167327430483*^9, 3.598167335386149*^9}, {
+  3.600492728717984*^9, 3.60049273418181*^9}, {3.61029607234177*^9, 
+  3.610296084719797*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "Projektoren", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"projV", "[", 
+     RowBox[{"mu_", ",", "nu_", ",", "p_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"{", "mu", "}"}], ".", 
+       RowBox[{"{", "nu", "}"}]}]}], "+", 
+     RowBox[{
+      RowBox[{"p", ".", 
+       RowBox[{"{", "mu", "}"}]}], 
+      RowBox[{
+       RowBox[{"p", ".", 
+        RowBox[{"{", "nu", "}"}]}], "/", 
+       RowBox[{"p", ".", "p"}]}]}]}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"projG", "[", 
+     RowBox[{"mu_", ",", "nu_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{
+       RowBox[{"{", "mu", "}"}], ".", 
+       RowBox[{"{", "nu", "}"}]}]}], "+", 
+     RowBox[{
+      RowBox[{"p3", ".", 
+       RowBox[{"{", "mu", "}"}]}], " ", 
+      RowBox[{
+       RowBox[{"p3", ".", 
+        RowBox[{"{", "nu", "}"}]}], "/", 
+       RowBox[{"p3", ".", "p3"}]}]}]}]}]}]}]], "Input",
+ CellChangeTimes->{{3.5959103731563587`*^9, 3.595910380038371*^9}, {
+  3.610296065869742*^9, 3.610296066137953*^9}, {3.6102961441877527`*^9, 
+  3.610296157673356*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "Projektor", " ", "um", " ", "die", " ", "Eichinvarianz", " ", "zu", " ", 
+    "testen"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"projG", "[", 
+     RowBox[{"mu_", ",", "nu_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"p3", ".", 
+      RowBox[{"{", "mu", "}"}]}], 
+     RowBox[{"p3", ".", 
+      RowBox[{"{", "nu", "}"}]}]}]}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.602839726109809*^9, 3.602839738856573*^9}, {
+  3.6102960571175623`*^9, 3.6102960573610773`*^9}, {3.610296102522182*^9, 
+  3.6102961052122173`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", "Matrixelemente", "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"iM1", "[", 
+     RowBox[{"alp_", ",", "bet_", ",", "gam_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"{", "alp", "}"}], ".", 
+         RowBox[{"{", "bet", "}"}]}], 
+        RowBox[{"p2t", "[", "gam", "]"}]}], "-", 
+       RowBox[{
+        RowBox[{"p2", ".", 
+         RowBox[{"{", "alp", "}"}]}], 
+        RowBox[{"gt", "[", 
+         RowBox[{"bet", ",", "gam"}], "]"}]}]}], ")"}], " ", "F1"}]}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"iM23", "[", 
+     RowBox[{"alp_", ",", "bet_", ",", "gam_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"p2", ".", 
+          RowBox[{"{", "alp", "}"}]}], 
+         RowBox[{"p1", ".", 
+          RowBox[{"{", "bet", "}"}]}]}], "-", 
+        RowBox[{
+         RowBox[{"p2", ".", "p1"}], " ", 
+         RowBox[{
+          RowBox[{"{", "alp", "}"}], ".", 
+          RowBox[{"{", "bet", "}"}]}]}]}], ")"}]}], 
+     RowBox[{"pt", "[", "gam", "]"}], "F23"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"iM4", "[", 
+     RowBox[{"alp_", ",", "bet_", ",", "gam_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"(", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"p2", ".", "p1"}], " ", 
+        RowBox[{
+         RowBox[{"{", "alp", "}"}], ".", 
+         RowBox[{"{", "bet", "}"}]}]}], "-", 
+       RowBox[{
+        RowBox[{"p2", ".", 
+         RowBox[{"{", "alp", "}"}]}], " ", 
+        RowBox[{"p1", ".", 
+         RowBox[{"{", "bet", "}"}]}]}]}], ")"}], 
+     RowBox[{"pt", "[", "gam", "]"}], "F4"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"iM5", "[", 
+     RowBox[{"alp_", ",", "bet_", ",", "gam_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"p2", ".", 
+          RowBox[{"{", "alp", "}"}]}], 
+         RowBox[{"p", ".", 
+          RowBox[{"{", "bet", "}"}]}]}], "-", 
+        RowBox[{
+         RowBox[{"p2", ".", 
+          RowBox[{"(", 
+           RowBox[{"p", "-", "p2"}], ")"}]}], 
+         RowBox[{
+          RowBox[{"{", "alp", "}"}], ".", 
+          RowBox[{"{", "bet", "}"}]}]}]}], ")"}]}], 
+     RowBox[{"p1t", "[", "gam", "]"}], "F5"}]}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"iM6", "[", 
+     RowBox[{"alp_", ",", "bet_", ",", "gam_"}], "]"}], ":=", 
+    RowBox[{
+     RowBox[{"-", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"p2", ".", 
+          RowBox[{"{", "alp", "}"}]}], " ", 
+         RowBox[{"p1", ".", 
+          RowBox[{"{", "bet", "}"}]}]}], "-", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"p2", ".", "p1"}], ")"}], " ", 
+         RowBox[{
+          RowBox[{"{", "alp", "}"}], ".", 
+          RowBox[{"{", "bet", "}"}]}]}]}], ")"}]}], 
+     RowBox[{"pt", "[", "gam", "]"}], "F6"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.595913397789645*^9, 3.595913397885223*^9}, {
+   3.595913611276332*^9, 3.595913642936934*^9}, {3.595914614753215*^9, 
+   3.595914618196108*^9}, {3.595914650621648*^9, 3.595914658621426*^9}, {
+   3.598876953317088*^9, 3.598876954401821*^9}, {3.598876985660602*^9, 
+   3.5988769987979918`*^9}, 3.598877225185472*^9, {3.600492957063675*^9, 
+   3.600492958076481*^9}, {3.600493949206949*^9, 3.600493950989407*^9}, 
+   3.6013668504056883`*^9, {3.610296008093163*^9, 3.610296020271428*^9}, {
+   3.610296168567232*^9, 3.6102961691297398`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Alles", " ", 
+    RowBox[{"zusammen", ":"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"iMges", "[", 
+    RowBox[{"alp_", ",", "bet_", ",", "gam_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{"iM1", "[", 
+     RowBox[{"alp", ",", "bet", ",", "gam"}], "]"}], "+", 
+    RowBox[{"iM23", "[", 
+     RowBox[{"alp", ",", "bet", ",", "gam"}], "]"}], "+", 
+    RowBox[{"iM4", "[", 
+     RowBox[{"alp", ",", "bet", ",", "gam"}], "]"}], "+", 
+    RowBox[{"iM5", "[", 
+     RowBox[{"alp", ",", "bet", ",", "gam"}], "]"}], "+", 
+    RowBox[{"iM6", "[", 
+     RowBox[{"alp", ",", "bet", ",", "gam"}], "]"}]}]}]}]], "Input",
+ CellChangeTimes->{{3.5981662668522453`*^9, 3.598166330254031*^9}, {
+  3.59826667480488*^9, 3.598266675027215*^9}, {3.599994264960586*^9, 
+  3.5999942685505877`*^9}, {3.61029617890551*^9, 3.610296179654632*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Minv2", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"Collect", "[", 
+       RowBox[{
+        RowBox[{"ContractEpsGamma", "[", 
+         RowBox[{
+          RowBox[{"iMges", "[", 
+           RowBox[{"alp", ",", "bet", ",", "gam"}], "]"}], 
+          RowBox[{"iMges", "[", 
+           RowBox[{"mu", ",", "nu", ",", "rho"}], "]"}], 
+          RowBox[{"projV", "[", 
+           RowBox[{"alp", ",", "mu", ",", "p"}], "]"}], 
+          RowBox[{"projV", "[", 
+           RowBox[{"bet", ",", "nu", ",", "p2"}], "]"}], 
+          RowBox[{"projG", "[", 
+           RowBox[{"gam", ",", "rho"}], "]"}]}], "]"}], ",", 
+        RowBox[{"{", 
+         RowBox[{
+         "F1", ",", "F2", ",", "F31", ",", "F32", ",", "F33", ",", "F4", ",", 
+          "F5", ",", "F6"}], "}"}]}], "]"}], "//.", "rules"}], "//.", 
+     RowBox[{"M", "\[Rule]", "Mf"}]}], "//", "Simplify"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.5981666778052597`*^9, 3.598166713952649*^9}, {
+   3.59887720113235*^9, 3.598877202855686*^9}, {3.598877240726535*^9, 
+   3.598877249348607*^9}, {3.600498144339237*^9, 3.600498169641959*^9}, {
+   3.600498734784203*^9, 3.600498740486766*^9}, {3.601359758457518*^9, 
+   3.601359762878175*^9}, {3.601366921383253*^9, 3.601366951474259*^9}, {
+   3.601367096829832*^9, 3.601367204295541*^9}, {3.602839813591213*^9, 
+   3.6028398158836193`*^9}, {3.602839965405105*^9, 3.6028399988527107`*^9}, 
+   3.6037800611370583`*^9}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Minv2", "//.", 
+   RowBox[{"Mf", "\[Rule]", 
+    RowBox[{"M", "[", "eps", "]"}]}]}], "//", "CForm"}]], "Input",
+ CellChangeTimes->{{3.602840006209806*^9, 3.6028400142907667`*^9}, {
+   3.60378005338288*^9, 3.603780080676244*^9}, 3.6037801116612463`*^9, {
+   3.603780152556026*^9, 3.603780158885418*^9}}],
+
+Cell["\<\
+(-16*Power(F23,2)*Power(m1,2)*Power(m2,2)*Power(M(eps),2) - 
+     4*Power(F23,2)*Power(Power(m1,2) + Power(m2,2) - s12,2)*Power(M(eps),2) + 
+     (4*Power(F23,2)*Power(m1,2)*Power(m2,2)*
+        Power(Power(m3,2) - s12 + Power(M(eps),2),2))/Power(m3,2) + 
+     (Power(F23,2)*Power(Power(m1,2) + Power(m2,2) - s12,2)*
+        Power(Power(m3,2) - s12 + Power(M(eps),2),2))/Power(m3,2) + 
+     4*Power(F23,2)*(Power(m1,2) + Power(m2,2) - s12)*
+      (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)) + 
+     (Power(F23,2)*(-Power(m1,2) - Power(m2,2) + s12)*
+        Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+        (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)))/
+      (Power(m3,2)*Power(M(eps),2)) + 
+     4*Power(F23,2)*Power(m1,2)*Power(Power(m2,2) - s31 + Power(M(eps),2),2) - 
+     (Power(F23,2)*Power(m1,2)*Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+        Power(Power(m2,2) - s31 + \
+Power(M(eps),2),2))/(Power(m3,2)*Power(M(eps),2)) + 
+     4*Power(F1,2)*(-16*Power(m2,2) + 
+        Power(Power(m2,2) + Power(m3,2) - s23,2)/Power(m3,2) - 
+        ((Power(m2,2) + Power(m3,2) - s23)*(Power(m3,2) - s12 + \
+Power(M(eps),2))*
+           (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) + 
+        Power(Power(m2,2) - s31 + Power(M(eps),2),2)/Power(M(eps),2)) + 
+     Power(F4,2)*(-16*Power(m1,2)*Power(m2,2)*Power(M(eps),2) - 
+        4*Power(Power(m1,2) + Power(m2,2) - s12,2)*Power(M(eps),2) + 
+        (4*Power(m1,2)*Power(m2,2)*Power(Power(m3,2) - s12 + \
+Power(M(eps),2),2))/
+         Power(m3,2) + (Power(Power(m1,2) + Power(m2,2) - s12,2)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2))/Power(m3,2) + 
+        4*(Power(m1,2) + Power(m2,2) - s12)*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+         (Power(m2,2) - s31 + Power(M(eps),2)) + 
+        ((-Power(m1,2) - Power(m2,2) + s12)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)))/
+         (Power(m3,2)*Power(M(eps),2)) + 
+        4*Power(m1,2)*Power(Power(m2,2) - s31 + Power(M(eps),2),2) - 
+        (Power(m1,2)*Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           Power(Power(m2,2) - s31 + \
+Power(M(eps),2),2))/(Power(m3,2)*Power(M(eps),2)))\\
+      + 2*F23*F6*(-16*Power(m1,2)*Power(m2,2)*Power(M(eps),2) - 
+        4*Power(Power(m1,2) + Power(m2,2) - s12,2)*Power(M(eps),2) + 
+        (4*Power(m1,2)*Power(m2,2)*Power(Power(m3,2) - s12 + \
+Power(M(eps),2),2))/
+         Power(m3,2) + (Power(Power(m1,2) + Power(m2,2) - s12,2)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2))/Power(m3,2) + 
+        4*(Power(m1,2) + Power(m2,2) - s12)*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+         (Power(m2,2) - s31 + Power(M(eps),2)) + 
+        ((-Power(m1,2) - Power(m2,2) + s12)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)))/
+         (Power(m3,2)*Power(M(eps),2)) + 
+        4*Power(m1,2)*Power(Power(m2,2) - s31 + Power(M(eps),2),2) - 
+        (Power(m1,2)*Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           Power(Power(m2,2) - s31 + \
+Power(M(eps),2),2))/(Power(m3,2)*Power(M(eps),2)))\\
+      + Power(F6,2)*(-16*Power(m1,2)*Power(m2,2)*Power(M(eps),2) - 
+        4*Power(Power(m1,2) + Power(m2,2) - s12,2)*Power(M(eps),2) + 
+        (4*Power(m1,2)*Power(m2,2)*Power(Power(m3,2) - s12 + \
+Power(M(eps),2),2))/
+         Power(m3,2) + (Power(Power(m1,2) + Power(m2,2) - s12,2)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2))/Power(m3,2) + 
+        4*(Power(m1,2) + Power(m2,2) - s12)*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+         (Power(m2,2) - s31 + Power(M(eps),2)) + 
+        ((-Power(m1,2) - Power(m2,2) + s12)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)))/
+         (Power(m3,2)*Power(M(eps),2)) + 
+        4*Power(m1,2)*Power(Power(m2,2) - s31 + Power(M(eps),2),2) - 
+        (Power(m1,2)*Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           Power(Power(m2,2) - s31 + \
+Power(M(eps),2),2))/(Power(m3,2)*Power(M(eps),2)))\\
+      + (Power(F5,2)*(Power(m1,4) + Power(Power(m3,2) - s31,2) - 
+          2*Power(m1,2)*(Power(m3,2) + s31))*
+        (Power(m2,6) - 2*Power(m2,4)*s31 + 2*Power(-(s31*M(eps)) + \
+Power(M(eps),3),2) + 
+          Power(m2,2)*(Power(s31,2) + 6*s31*Power(M(eps),2) - \
+3*Power(M(eps),4))))/
+      (Power(m3,2)*Power(M(eps),2)) + 
+     2*F5*((-4*F23*Power(m2,2)*(Power(m1,2) + Power(m2,2) - s12)*
+           (Power(m1,2) + Power(m3,2) - s31)*(Power(m3,2) - s12 + \
+Power(M(eps),2)))/
+         Power(m3,2) - 8*F23*Power(m2,2)*(Power(m1,2) + Power(m2,2) - s12)*
+         (Power(m1,2) - s23 + Power(M(eps),2)) - 
+        (2*F23*Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+           (Power(m3,2) - s12 + Power(M(eps),2))*(Power(m1,2) - s23 + \
+Power(M(eps),2)))/
+         Power(m3,2) - 4*F23*Power(m2,2)*Power(Power(m1,2) - s23 + \
+Power(M(eps),2),2) - 
+        (2*F23*(-Power(m1,2) - Power(m2,2) + s12)*(Power(m1,2) + Power(m3,2) \
+- s31)*
+           (Power(m3,2) - s12 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)))/
+         Power(m3,2) + 4*F23*(Power(m1,2) + Power(m2,2) - s12)*
+         (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)) + 
+        (F23*Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+           (Power(m3,2) - s12 + Power(M(eps),2))*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+           (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) + 
+        (2*F23*Power(m2,2)*Power(Power(m1,2) - s23 + Power(M(eps),2),2)*
+           (Power(m2,2) - s31 + Power(M(eps),2)))/Power(M(eps),2) + 
+        F6*((-4*Power(m2,2)*(Power(m1,2) + Power(m2,2) - s12)*
+              (Power(m1,2) + Power(m3,2) - s31)*(Power(m3,2) - s12 + \
+Power(M(eps),2)))/
+            Power(m3,2) - 8*Power(m2,2)*(Power(m1,2) + Power(m2,2) - s12)*
+            (Power(m1,2) - s23 + Power(M(eps),2)) - 
+           (2*Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2))*
+              (Power(m1,2) - s23 + Power(M(eps),2)))/Power(m3,2) - 
+           4*Power(m2,2)*Power(Power(m1,2) - s23 + Power(M(eps),2),2) - 
+           (2*(-Power(m1,2) - Power(m2,2) + s12)*(Power(m1,2) + Power(m3,2) - \
+s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2))*
+              (Power(m2,2) - s31 + Power(M(eps),2)))/Power(m3,2) + 
+           4*(Power(m1,2) + Power(m2,2) - s12)*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+            (Power(m2,2) - s31 + Power(M(eps),2)) + 
+           (Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2))*
+              (Power(m1,2) - s23 + Power(M(eps),2))*
+              (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) + 
+           (2*Power(m2,2)*Power(Power(m1,2) - s23 + Power(M(eps),2),2)*
+              (Power(m2,2) - s31 + Power(M(eps),2)))/Power(M(eps),2))) + 
+     2*F4*(-16*F23*Power(m1,2)*Power(m2,2)*Power(M(eps),2) - 
+        4*F23*Power(Power(m1,2) + Power(m2,2) - s12,2)*Power(M(eps),2) + 
+        (4*F23*Power(m1,2)*Power(m2,2)*Power(Power(m3,2) - s12 + \
+Power(M(eps),2),2))/
+         Power(m3,2) + (F23*Power(Power(m1,2) + Power(m2,2) - s12,2)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2))/Power(m3,2) + 
+        4*F23*(Power(m1,2) + Power(m2,2) - s12)*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+         (Power(m2,2) - s31 + Power(M(eps),2)) + 
+        (F23*(-Power(m1,2) - Power(m2,2) + s12)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)))/
+         (Power(m3,2)*Power(M(eps),2)) + 
+        4*F23*Power(m1,2)*Power(Power(m2,2) - s31 + Power(M(eps),2),2) - 
+        (F23*Power(m1,2)*Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           Power(Power(m2,2) - s31 + \
+Power(M(eps),2),2))/(Power(m3,2)*Power(M(eps),2))\\
+         + F5*((-4*Power(m2,2)*(Power(m1,2) + Power(m2,2) - s12)*
+              (Power(m1,2) + Power(m3,2) - s31)*(Power(m3,2) - s12 + \
+Power(M(eps),2)))/
+            Power(m3,2) - 8*Power(m2,2)*(Power(m1,2) + Power(m2,2) - s12)*
+            (Power(m1,2) - s23 + Power(M(eps),2)) - 
+           (2*Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2))*
+              (Power(m1,2) - s23 + Power(M(eps),2)))/Power(m3,2) - 
+           4*Power(m2,2)*Power(Power(m1,2) - s23 + Power(M(eps),2),2) - 
+           (2*(-Power(m1,2) - Power(m2,2) + s12)*(Power(m1,2) + Power(m3,2) - \
+s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2))*
+              (Power(m2,2) - s31 + Power(M(eps),2)))/Power(m3,2) + 
+           4*(Power(m1,2) + Power(m2,2) - s12)*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+            (Power(m2,2) - s31 + Power(M(eps),2)) + 
+           (Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2))*
+              (Power(m1,2) - s23 + Power(M(eps),2))*
+              (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) + 
+           (2*Power(m2,2)*Power(Power(m1,2) - s23 + Power(M(eps),2),2)*
+              (Power(m2,2) - s31 + Power(M(eps),2)))/Power(M(eps),2)) + 
+        F6*(-16*Power(m1,2)*Power(m2,2)*Power(M(eps),2) - 
+           4*Power(Power(m1,2) + Power(m2,2) - s12,2)*Power(M(eps),2) + 
+           (4*Power(m1,2)*Power(m2,2)*Power(Power(m3,2) - s12 + \
+Power(M(eps),2),2))/
+            Power(m3,2) + (Power(Power(m1,2) + Power(m2,2) - s12,2)*
+              Power(Power(m3,2) - s12 + Power(M(eps),2),2))/Power(m3,2) + 
+           4*(Power(m1,2) + Power(m2,2) - s12)*(Power(m1,2) - s23 + \
+Power(M(eps),2))*
+            (Power(m2,2) - s31 + Power(M(eps),2)) + 
+           ((-Power(m1,2) - Power(m2,2) + s12)*
+              Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+              (Power(m1,2) - s23 + Power(M(eps),2))*
+              (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) + 
+           4*Power(m1,2)*Power(Power(m2,2) - s31 + Power(M(eps),2),2) - 
+           (Power(m1,2)*Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+              Power(Power(m2,2) - s31 + Power(M(eps),2),2))/
+            (Power(m3,2)*Power(M(eps),2)))) + 
+     2*F1*((-2*F23*(-Power(m1,2) - Power(m2,2) + s12)*(Power(m2,2) + \
+Power(m3,2) - s23)*
+           (Power(m3,2) - s12 + Power(M(eps),2)))/Power(m3,2) - 
+        (4*F23*Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+           (Power(m3,2) - s12 + Power(M(eps),2)))/Power(m3,2) - 
+        8*F23*Power(m2,2)*(Power(m1,2) - s23 + Power(M(eps),2)) + 
+        8*F23*(Power(m1,2) + Power(m2,2) - s12)*(Power(m2,2) - s31 + \
+Power(M(eps),2)) + 
+        (F23*(-Power(m1,2) - Power(m2,2) + s12)*
+           Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+           (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) - 
+        (F23*(Power(m2,2) + Power(m3,2) - s23)*(Power(m3,2) - s12 + \
+Power(M(eps),2))*
+           (Power(m1,2) - s23 + Power(M(eps),2))*(Power(m2,2) - s31 + \
+Power(M(eps),2)))/
+         (Power(m3,2)*Power(M(eps),2)) + 
+        (F23*(Power(m1,2) + Power(m3,2) - s31)*(Power(m3,2) - s12 + \
+Power(M(eps),2))*
+           Power(Power(m2,2) - s31 + \
+Power(M(eps),2),2))/(Power(m3,2)*Power(M(eps),2))\\
+         + F4*((-2*(-Power(m1,2) - Power(m2,2) + s12)*(Power(m2,2) + \
+Power(m3,2) - s23)*
+              (Power(m3,2) - s12 + Power(M(eps),2)))/Power(m3,2) - 
+           (4*Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2)))/Power(m3,2) - 
+           8*Power(m2,2)*(Power(m1,2) - s23 + Power(M(eps),2)) + 
+           8*(Power(m1,2) + Power(m2,2) - s12)*(Power(m2,2) - s31 + \
+Power(M(eps),2)) + 
+           ((-Power(m1,2) - Power(m2,2) + s12)*
+              Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+              (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) - 
+           ((Power(m2,2) + Power(m3,2) - s23)*(Power(m3,2) - s12 + \
+Power(M(eps),2))*
+              (Power(m1,2) - s23 + Power(M(eps),2))*
+              (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) + 
+           ((Power(m1,2) + Power(m3,2) - s31)*(Power(m3,2) - s12 + \
+Power(M(eps),2))*
+              Power(Power(m2,2) - s31 + Power(M(eps),2),2))/
+            (Power(m3,2)*Power(M(eps),2))) + 
+        F6*((-2*(-Power(m1,2) - Power(m2,2) + s12)*(Power(m2,2) + Power(m3,2) \
+- s23)*
+              (Power(m3,2) - s12 + Power(M(eps),2)))/Power(m3,2) - 
+           (4*Power(m2,2)*(Power(m1,2) + Power(m3,2) - s31)*
+              (Power(m3,2) - s12 + Power(M(eps),2)))/Power(m3,2) - 
+           8*Power(m2,2)*(Power(m1,2) - s23 + Power(M(eps),2)) + 
+           8*(Power(m1,2) + Power(m2,2) - s12)*(Power(m2,2) - s31 + \
+Power(M(eps),2)) + 
+           ((-Power(m1,2) - Power(m2,2) + s12)*
+              Power(Power(m3,2) - s12 + Power(M(eps),2),2)*
+              (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) - 
+           ((Power(m2,2) + Power(m3,2) - s23)*(Power(m3,2) - s12 + \
+Power(M(eps),2))*
+              (Power(m1,2) - s23 + Power(M(eps),2))*
+              (Power(m2,2) - s31 + \
+Power(M(eps),2)))/(Power(m3,2)*Power(M(eps),2)) + 
+           ((Power(m1,2) + Power(m3,2) - s31)*(Power(m3,2) - s12 + \
+Power(M(eps),2))*
+              Power(Power(m2,2) - s31 + Power(M(eps),2),2))/
+            (Power(m3,2)*Power(M(eps),2))) + 
+        (2*F5*(2*(Power(m3,4) + s23*s31 - Power(m3,2)*(2*s12 + s23 + s31))*
+              Power(M(eps),2)*(-s31 + Power(M(eps),2)) + 
+             Power(m2,4)*(Power(m3,4) + s31*(s12 + Power(M(eps),2)) - 
+                Power(m3,2)*(s12 + 2*s23 + s31 + 3*Power(M(eps),2))) - 
+             Power(m2,2)*(Power(m3,4)*(s31 + 3*Power(M(eps),2)) + 
+                s31*(s12*s31 + (s12 + 2*s23 - 3*s31)*Power(M(eps),2) + 
+                   Power(M(eps),4)) - 
+                Power(m3,2)*(s31*(s12 + 2*s23 + s31) + 
+                   (5*s12 + 4*s23 - 6*s31)*Power(M(eps),2) + \
+3*Power(M(eps),4))) + 
+             Power(m1,2)*(Power(m2,4)*(3*Power(m3,2) - s12 - Power(M(eps),2)) \
++ 
+                2*(3*Power(m3,2) - s23)*Power(M(eps),2)*(-s31 + \
+Power(M(eps),2)) + 
+                Power(m2,2)*(s12*s31 + (s12 + 2*s23 - 3*s31)*Power(M(eps),2) + 
+                   Power(M(eps),4) - 3*Power(m3,2)*(s31 + \
+3*Power(M(eps),2))))))/
+         (Power(m3,2)*Power(M(eps),2))))/16.\
+\>", "Output",
+ CellChangeTimes->{3.603780159123207*^9, 3.610296193919731*^9, 
+  3.610296623151019*^9, 3.610296992454094*^9, 3.61029875401959*^9, 
+  3.6103010110668707`*^9, 3.610301459220374*^9}]
+}, Open  ]]
+},
+WindowSize->{808, 1004},
+WindowMargins->{{Automatic, 360}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (January 25, \
+2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[567, 22, 311, 6, 28, "Input"],
+Cell[CellGroupData[{
+Cell[903, 32, 124, 2, 37, "Print"],
+Cell[1030, 36, 128, 2, 52, "Print"],
+Cell[1161, 40, 146, 2, 21, "Print"],
+Cell[1310, 44, 132, 2, 22, "Print"],
+Cell[1445, 48, 145, 2, 53, "Print"],
+Cell[1593, 52, 400, 10, 21, "Print"],
+Cell[1996, 64, 354, 8, 52, "Print"],
+Cell[2353, 74, 668, 9, 227, "Print"],
+Cell[3024, 85, 140, 2, 52, "Print"],
+Cell[3167, 89, 270, 6, 22, "Print"],
+Cell[3440, 97, 321, 7, 22, "Print"],
+Cell[3764, 106, 350, 8, 22, "Print"]
+}, Open  ]],
+Cell[4129, 117, 123, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4289, 124, 258, 4, 46, "Input"],
+Cell[CellGroupData[{
+Cell[4572, 132, 424, 8, 22, "Print"],
+Cell[4999, 142, 453, 9, 22, "Print"]
+}, Open  ]]
+}, Open  ]],
+Cell[5479, 155, 3212, 101, 97, "Input"],
+Cell[8694, 258, 1061, 30, 97, "Input"],
+Cell[9758, 290, 1151, 36, 63, "Input"],
+Cell[10912, 328, 608, 17, 46, "Input"],
+Cell[11523, 347, 3537, 102, 114, "Input"],
+Cell[15063, 451, 885, 21, 63, "Input"],
+Cell[15951, 474, 1459, 32, 80, "Input"],
+Cell[CellGroupData[{
+Cell[17435, 510, 337, 7, 28, "Input"],
+Cell[17775, 519, 14672, 277, 3134, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
